@@ -7,4 +7,4 @@ services:
     ports:
       - '80:80'
     volumes:
-      - './site_content:/site-content:/usr/share/nginx/html'
+      - './site_content:/usr/share/nginx/html'
