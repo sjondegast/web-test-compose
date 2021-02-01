@@ -4,7 +4,9 @@ services:
     image: nginx
     container_name: web_test
     restart: unless-stopped
-    ports:
-      - '80:80'
+    expose:
+      - '80'
+    # ports:
+    # - '80:80'
     volumes:
       - './site_content:/usr/share/nginx/html'
