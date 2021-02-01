@@ -4,8 +4,6 @@ services:
     image: nginx
     container_name: web_test
     restart: unless-stopped
-    networks:
-      - nginx-proxy
     expose:
       - '80'
     environment:
