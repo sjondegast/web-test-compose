@@ -7,7 +7,7 @@ services:
     expose:
       - '80'
     environment:
-      - VIRTUAL_HOST='homelab.web1'
+      - VIRTUAL_HOST='homelab'
     volumes:
       - './site_content:/usr/share/nginx/html'
 networks:
