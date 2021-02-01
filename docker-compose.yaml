@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  web:
+    image: yeasy/simple-web:latest
+    container_name: web_test
+    restart: unless-stopped
+    command: ['-d', '--rm']
+    ports:
+      - '80:80'
