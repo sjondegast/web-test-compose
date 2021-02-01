@@ -7,7 +7,7 @@ services:
     expose:
       - '80'
     environment:
-      - VIRTUAL_HOST='192.168.2.100/webtest'
+      - VIRTUAL_HOST='homelab.web1'
     volumes:
       - './site_content:/usr/share/nginx/html'
 networks:
