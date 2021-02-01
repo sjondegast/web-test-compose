@@ -4,13 +4,15 @@ services:
     image: nginx
     container_name: web_test
     restart: unless-stopped
+    networks:
+      - nginx-proxy
     expose:
       - '80'
     environment:
       - VIRTUAL_HOST='homelab'
-    volumes:
-      - './site_content:/usr/share/nginx/html'
+    # volumes:
+    #   - './site_content:/usr/share/nginx/html'
+
 networks:
-  default:
-    external:
-      name: nginx-proxy
+  nginx-proxy:
+    external: true
