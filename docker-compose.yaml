@@ -9,7 +9,7 @@ services:
     expose:
       - '80'
     environment:
-      - VIRTUAL_HOST=homelab.local
+      - VIRTUAL_HOST=homelab
 
 networks:
   nginx-proxy:
