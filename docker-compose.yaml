@@ -2,14 +2,14 @@ version: '3.9'
 services:
   web:
     image: nginx
-    container_name: web_test
+    container_name: web_2
     restart: unless-stopped
     networks:
       - nginx-proxy
     expose:
       - '80'
     environment:
-      - VIRTUAL_HOST=web_1.localhost
+      - VIRTUAL_HOST=web_2.localhost
 
 networks:
   nginx-proxy:
