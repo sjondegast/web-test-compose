@@ -10,10 +10,9 @@ services:
       - '80'
       # 433 is the default SSL port, needed for https:// protocol.
       # - '433:433'
-    depends_on:
-      # make sure to append depends_on, services will be started in dependency order!
-      nginx_proxy:
-        external: true
+    # depends_on:
+    # make sure to append depends_on, services will be started in dependency order!
+    # - nginx_proxy
     # env_file:
     #   - ./common.env
     environment:
