@@ -12,7 +12,8 @@ services:
       # - '433:433'
     depends_on:
       # make sure to append depends_on, services will be started in dependency order!
-      - nginx_proxy
+      nginx_proxy:
+        external: true
     # env_file:
     #   - ./common.env
     environment:
