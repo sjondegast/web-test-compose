@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  web:
+  nginx:
     image: nginx
     container_name: web_2
     restart: unless-stopped
@@ -8,9 +8,22 @@ services:
       - nginx-proxy
     expose:
       - '80'
+      # 433 is the default SSL port, needed for https:// protocol.
+      # - '433:433'
+    depends_on:
+      # make sure to append depends_on, services will be started in dependency order!
+      - nginx_proxy
+    # env_file:
+    #   - ./common.env
     environment:
-      - VIRTUAL_HOST=homelab.localhost
+      # - ENV=development
+      - APPLICATION_URL=http://homelab/web2
+      - VIRTUAL_HOST=homelab.local
+    # volumes:
+    #   - ./nginx.conf:/etc/nginx/nginx.conf
 
 networks:
   nginx-proxy:
+    # *** network is not created in this compose, so external: true ***!
+    # TODO: network should be created inside proxy_nginx container, all others are dependent on the reverse-proxy!
     external: true
