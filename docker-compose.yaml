@@ -9,7 +9,7 @@ services:
     expose:
       - '80'
     environment:
-      VIRTUAL_HOST: webserver1.local
+      VIRTUAL_HOST: webserver1
   webserver2:
     image: nginx
     container_name: webserver2
@@ -19,7 +19,7 @@ services:
     expose:
       - '80'
     environment:
-      VIRTUAL_HOST: webserver2.local
+      VIRTUAL_HOST: webserver2
 
 # *** network is not created in this compose, so external: true ***!
 # TODO: network should be created inside proxy_nginx container, all others are dependent on the reverse-proxy!
