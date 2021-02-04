@@ -9,7 +9,7 @@ services:
     expose:
       - '80'
     environment:
-      - VIRTUAL_HOST=web1.localhost
+      VIRTUAL_HOST: web-1
 
 networks:
   nginx-proxy:
