@@ -1,18 +1,28 @@
 version: '3.9'
 services:
-  nginx:
+  webserver1:
     image: nginx
-    container_name: nginx_web
+    container_name: webserver1
     restart: unless-stopped
     networks:
       - nginx-proxy
     expose:
       - '80'
     environment:
-      VIRTUAL_HOST: web-1
+      VIRTUAL_HOST: webserver1.local
+  webserver2:
+    image: nginx
+    container_name: webserver2
+    restart: unless-stopped
+    networks:
+      - nginx-proxy
+    expose:
+      - '80'
+    environment:
+      VIRTUAL_HOST: webserver2.local
 
+# *** network is not created in this compose, so external: true ***!
+# TODO: network should be created inside proxy_nginx container, all others are dependent on the reverse-proxy!
 networks:
   nginx-proxy:
-    # *** network is not created in this compose, so external: true ***!
-    # TODO: network should be created inside proxy_nginx container, all others are dependent on the reverse-proxy!
     external: true
